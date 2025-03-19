@@ -1,62 +1,62 @@
 <div class="weather-container">
-  <!-- Search Section -->
-  <div class="search-section">
-    <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
-    <button (click)="fetchWeather()">Search</button>
-   
-    <div class="time-buttons">
-      <button (click)="setTimeRange('24hours')">24 Hours</button>
-      <button (click)="setTimeRange('48hours')">48 Hours</button>
-      <button (click)="setTimeRange('72hours')">72 Hours</button>
-      <button (click)="setTimeRange('1week')">1 Week</button>
-      <button (click)="setTimeRange('1month')">1 Month</button>
-    </div>
-  </div>
-
-
   <!-- Main Content Section -->
   <div class="content-section">
-    <!-- Chart Section (Left) -->
+    <!-- Chart Section (Left - 60%) -->
     <div class="chart-container">
       <canvas id="weatherChart"></canvas>
     </div>
-
-
-    <!-- Table Section (Right) -->
-    <div class="table-container">
-      <table *ngIf="weatherData?.length">
-        <thead>
-          <tr>
-            <th>Index</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let data of weatherData.slice(-getRangeLimit()); let i = index"
-              (click)="selectRow(data)" style="cursor: pointer;">
-            <td>{{ i + 1 }}</td>
-            <td>{{ data.time.split('T')[0] }}</td>
-            <td>{{ data.time.split('T')[1] }}</td>
-            <td>{{ data.temperature }}°C</td>
-          </tr>
-        </tbody>
-      </table>
+    
+    <!-- Right Section (40%) -->
+    <div class="right-section">
+      <!-- Search Section -->
+      <div class="search-section">
+        <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
+        <button (click)="fetchWeather()">Search</button>
+      </div>
+      
+      <div class="time-buttons">
+        <button (click)="setTimeRange('24hours')">24 Hours</button>
+        <button (click)="setTimeRange('48hours')">48 Hours</button>
+        <button (click)="setTimeRange('72hours')">72 Hours</button>
+        <button (click)="setTimeRange('1week')">1 Week</button>
+        <button (click)="setTimeRange('1month')">1 Month</button>
+      </div>
+      
+      <!-- Table Section -->
+      <div class="table-container">
+        <table *ngIf="weatherData?.length">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of weatherData.slice(-getRangeLimit()); let i = index"
+                (click)="selectRow(data)" style="cursor: pointer;">
+              <td>{{ i + 1 }}</td>
+              <td>{{ data.time.split('T')[0] }}</td>
+              <td>{{ data.time.split('T')[1] }}</td>
+              <td>{{ data.temperature }}°C</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Weather Card Section -->
+      <div class="weather-card" *ngIf="selectedData">
+        <h2>Weather Card</h2>
+        <div class="weather-card-content">
+          <p><strong>Temperature:</strong> {{ selectedData.temperature }} °C</p>
+          <p><strong>Wind Speed:</strong> {{ selectedData.wind_speed }} m/s</p>
+          <p><strong>Humidity:</strong> {{ selectedData.humidity }}%</p>
+          <p><strong>Pressure:</strong> {{ selectedData.pressure }} hPa</p>
+          <p><strong>Condition:</strong> {{ selectedData.weather_condition }}</p>
+          <p><strong>Location:</strong> {{ city }}</p>
+        </div>
+      </div>
     </div>
-  </div>
-
-
-  <!-- Weather Card Section -->
-  <div class="weather-card" *ngIf="selectedData">
-    <h2>Weather Card</h2>
-    <p><strong>Date:</strong> {{ selectedData.time.split('T')[0] }}</p>
-    <p><strong>Time:</strong> {{ selectedData.time.split('T')[1] }}</p>
-    <p><strong>Temperature:</strong> {{ selectedData.temperature }} °C</p>
-    <p><strong>Wind Speed:</strong> {{ selectedData.wind_speed }} m/s</p>
-    <p><strong>Humidity:</strong> {{ selectedData.humidity }}%</p>
-    <p><strong>Pressure:</strong> {{ selectedData.pressure }} hPa</p>
-    <p><strong>Condition:</strong> {{ selectedData.weather_condition }}</p>
-    <p><strong>Location:</strong> {{ city }}</p>
   </div>
 </div>
