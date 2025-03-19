@@ -1,0 +1,116 @@
+/* Container for the entire weather app */
+.weather-container {
+  width: 90%;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+/* Search section styling */
+.search-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+
+.search-section input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+
+.search-section button {
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* Time range buttons */
+.time-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+
+.time-buttons button {
+  background: #0056b3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* Main content section */
+.content-section {
+  display: flex;
+  gap: 20px;
+}
+
+
+/* Chart section */
+.chart-container {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+/* Table section */
+.table-container {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+table th, table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+table th {
+  background: #007bff;
+  color: white;
+}
+
+
+table tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Weather Card */
+.weather-card {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
