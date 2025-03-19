@@ -82,7 +82,7 @@ public class WeatherController {
     private Object[] formatWeatherData(WeatherDetails weatherDetails) {
         final String[] timeArray = weatherDetails.getHourly().getTime();
         final double[] tempArray = weatherDetails.getHourly().getTemperature_2m();
-        final double[] windArray = weatherDetails.getHourly().getWind_speed_10m();  /
+        final double[] windArray = weatherDetails.getHourly().getWind_speed_10m(); 
         final double[] humidityArray = weatherDetails.getHourly().getRelative_humidity_2m();
         final double[] pressureArray = weatherDetails.getHourly().getPressure_msl();
         final String[] weatherConditionsArray = weatherDetails.getHourly().getWeatherCondition();
